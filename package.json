@@ -1,0 +1,21 @@
+{
+  "name": "expose-via-accessor",
+  "version": "0.1.0",
+  "description": "",
+  "author": "G. Kay Lee <balancetraveller+github@gmail.com>",
+  "scripts": {
+    "setup": "npm cache clean && npm install"
+  },
+  "main": "expose-via-accessor.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gsklee/expose-via-accessor"
+  },
+  "keywords": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "iojs": ">=1.5.1"
+  },
+  "license": "MIT"
+}
