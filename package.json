@@ -1,0 +1,28 @@
+{
+  "name": "expose-via-accessor",
+  "version": "0.1.0",
+  "description": "",
+  "author": "G. Kay Lee <balancetraveller+github@gmail.com>",
+  "scripts": {
+    "setup": "npm cache clean && npm install",
+    "build": "gulp build:scripts"
+  },
+  "main": "expose-via-accessor.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gsklee/expose-via-accessor"
+  },
+  "keywords": [],
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^4.7.15",
+    "gulp": "^3.8.11",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-babel": "^4.0.0"
+  },
+  "engines": {
+    "iojs": ">=1.5.1"
+  },
+  "license": "MIT"
+}
