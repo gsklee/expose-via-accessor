@@ -1,6 +1,6 @@
 var _privateObject;
 
-export default const {expose, via} = {
+export default {expose, via} = {
   expose(privateObject) {
     _privateObject = privateObject;
   },
