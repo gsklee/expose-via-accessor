@@ -36,11 +36,12 @@ Indicates the private object to be exposed. Must be used in conjunction with `vi
 #### via(_publicObject: Object_)(_[transformer: any => any]_): undefined
 First invocation indicates the public object to be used. Second invocation attaches getter-setter pairs onto `publicObject`, each pair points to a property on `privateObject`; optionally, a transformer can be specified which will be applied before `publicObject`'s setter assign the input to `privateObject`'s properties.
 
-Example:
-
+######Example
 ```javascript
 var publicObject = {},
-    privateObject = {};
+    privateObject = {
+      answer: null
+    };
 
 expose (privateObject)
    via (publicObject)(x => x * x);
@@ -50,6 +51,31 @@ publicObject.answer = 42;
 console.log(publicObject);
 // Object {answer: 1764}
 ```
+
+Notice that the transformer will only apply to properties that are exposed, ie. properties that exist on `privateObject`.
+
+######Example
+```javascript
+var publicObject = {},
+    privateObject = {
+      answer: null
+    };
+
+expose (privateObject)
+   via (publicObject)(x => x * x);
+
+publicObject.question = 42;
+publicObject.answer = 42;
+
+console.log(publicObject);
+// Object {answer: 1764, question: 42}
+console.log(privateObject);
+// Object {answer: 1764}
+```
+
+Todo
+----
+* Property name conflict detection/resolution
 
 License
 -------
