@@ -8,7 +8,7 @@ Install
 $ npm install expose-via-accessor
 ```
 
-Usage
+Usage | [Demo](http://jsbin.com/kocobemeni/2/edit?html,js,console)
 -----
 ```javascript
 import {expose, via} from 'expose-via-accessor';
