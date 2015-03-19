@@ -1,6 +1,6 @@
 var _privateObject;
 
-export default {expose, via} = {
+export default {
   expose(privateObject) {
     _privateObject = privateObject;
   },
