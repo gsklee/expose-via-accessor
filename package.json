@@ -1,7 +1,7 @@
 {
   "name": "expose-via-accessor",
   "version": "0.1.0",
-  "description": "",
+  "description": "Expose a private object via a public object's accessor.",
   "author": "G. Kay Lee <balancetraveller+github@gmail.com>",
   "scripts": {
     "setup": "npm cache clean && npm install",
