@@ -1,3 +1,7 @@
+1.1.1 (2015.03.22)
+==================
+* Shrink installation size
+
 1.1.0 (2015.03.22)
 ==================
 * Add `options.overwrite`
