@@ -6,15 +6,20 @@ export default {
   },
 
   via(publicObject) {
-    return (transform = x => x) => {
+    return ({
+      overwrite = false,
+      transform = x => x
+    } = {}) => {
       return Object.defineProperties(publicObject, Object.keys(_privateObject)
                                                          .reduce((m, n) => {
-                                                           m[n] = {
-                                                             configurable: true,
-                                                             enumerable: true,
-                                                             get: () => _privateObject[n],
-                                                             set: x => _privateObject[n] = transform(x)
-                                                           };
+                                                           if (overwrite || !(n in publicObject)) {
+                                                             m[n] = {
+                                                               configurable: true,
+                                                               enumerable: true,
+                                                               get: () => _privateObject[n],
+                                                               set: x => _privateObject[n] = transform(x)
+                                                             };
+                                                           }
 
                                                            return m;
                                                          }, {}));
