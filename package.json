@@ -1,6 +1,6 @@
 {
   "name": "expose-via-accessor",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Expose a private object via a public object's accessor.",
   "author": "G. Kay Lee <balancetraveller+github@gmail.com>",
   "scripts": {
