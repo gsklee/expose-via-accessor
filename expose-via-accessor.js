@@ -1,13 +1,15 @@
 "use strict";
 
-var _privateObject;
+var privateObjects = [];
 
 module.exports = {
   expose: function expose(privateObject) {
-    _privateObject = privateObject;
+    privateObjects.push(privateObject);
   },
 
   via: function via(publicObject) {
+    var privateObject = privateObjects.slice(-1)[0];
+
     return function () {
       var _ref = arguments[0] === undefined ? {} : arguments[0];
 
@@ -18,16 +20,16 @@ module.exports = {
         return x;
       } : _ref$transform;
 
-      return Object.defineProperties(publicObject, Object.keys(_privateObject).reduce(function (m, n) {
+      return Object.defineProperties(publicObject, Object.keys(privateObject).reduce(function (m, n) {
         if (overwrite || !(n in publicObject)) {
           m[n] = {
             configurable: true,
             enumerable: true,
             get: function () {
-              return _privateObject[n];
+              return privateObject[n];
             },
             set: function (x) {
-              return _privateObject[n] = transform(x);
+              return privateObject[n] = transform(x);
             }
           };
         }
