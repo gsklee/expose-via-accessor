@@ -1,23 +1,25 @@
-var _privateObject;
+var privateObjects = [];
 
 export default {
   expose(privateObject) {
-    _privateObject = privateObject;
+    privateObjects.push(privateObject);
   },
 
   via(publicObject) {
+    const privateObject = privateObjects.slice(-1)[0];
+
     return ({
       overwrite = false,
       transform = x => x
     } = {}) => {
-      return Object.defineProperties(publicObject, Object.keys(_privateObject)
+      return Object.defineProperties(publicObject, Object.keys(privateObject)
                                                          .reduce((m, n) => {
                                                            if (overwrite || !(n in publicObject)) {
                                                              m[n] = {
                                                                configurable: true,
                                                                enumerable: true,
-                                                               get: () => _privateObject[n],
-                                                               set: x => _privateObject[n] = transform(x)
+                                                               get: () => privateObject[n],
+                                                               set: x => privateObject[n] = transform(x)
                                                              };
                                                            }
 
